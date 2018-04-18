@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Quadratc Equation Solver">
+  <meta name="author" content="Sanjay Srhari">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    center {
+      color:white;
+    }
+    body{
+      background-image: url('https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX4713346.jpg');
+      background-repeat: repeat;
+      background-attachment: center;
+      background-position: scroll;
+    }
+  </style>
+  </head>
+  <body>
+  <mark>
+  <title>Sanjay Srihari's Quadratic Equation Solver
+  </title>
+  <center>
+    <h1>Sanjay Srihari's Quadratic Equation Solver</h1>
+    <p>Enter the a, b, and c values of your equation to calculate the zeros!<br> </p>
+    <form>
+    Value of a: <input type="text" id="a"><br>
+    Value of b: <input type="text" id="b"><br>
+    Value of c: <input type="text" id="c"><br>
+    <input type="button" onclick="QuadraticFormula()" value="Submit">
+    </form> 
+    <div id="zero #1">Your first zero will appear here when you hit 'Submit'</div>
+    <div id="zero #2">Your second zero will appear here when you hit 'Submit'</div>
+  </center>
+  </mark>
+  </body>
+  <script>
+    function QuadraticFormula () {
+      var a = Number(document.getElementById("a").value);
+      var b = Number(document.getElementById("b").value);
+      var c = Number(document.getElementById("c").value);
+      var discriminant = ((b*b) - (4*a*c))
+      if (a == 0) {
+        document.getElementById("zero #1").innerHTML = 'This is not a quadratic function'
+        document.getElementById("zero #2").innerHTML = ' '
+      } 
+      else if (discriminant == 0) {
+        document.getElementById("zero #1").innerHTML = 'x = ' + (-1*b + Math.sqrt(discriminant))/(2 * a);
+        document.getElementById("zero #2").innerHTML = 'There is no second real zero';
+      }
+      else if (discriminant > 1) {
+        document.getElementById("zero #1").innerHTML = 'x = ' + (-1*b + Math.sqrt(discriminant))/(2 * a);
+        document.getElementById("zero #2").innerHTML = 'x = ' + (-1*b - Math.sqrt(discriminant))/(2 * a);
+      }
+      else {
+        document.getElementById("zero #1").innerHTML = 'Imaginary answer';
+        document.getElementById("zero #2").innerHTML = 'Imaginary answer';
+      }     
+    }
+  </script>
+</html>
